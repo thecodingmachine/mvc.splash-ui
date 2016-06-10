@@ -34,9 +34,6 @@
 			"require-admin" : [
 				"src/SplashUiAdmin.php"
 			]
-		},
-		"branch-alias": {
-			"dev-fetcher_factories": "7.0.x-dev"
 		}
 	},
 	"minimum-stability": "dev",
