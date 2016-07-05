@@ -62,9 +62,9 @@ class SplashCreateControllerController extends Controller
 
         $this->template->getWebLibraryManager()->addLibrary(new WebLibrary(
                 array(
-                        '../mvc.splash-common/src/views/javascript/angular.min.js',
-                        '../mvc.splash-common/src/views/javascript/ui-utils.min.js',
-                        '../mvc.splash-common/src/views/javascript/createController.js',
+                        '../mvc.splash-ui/src/views/javascript/angular.min.js',
+                        '../mvc.splash-ui/src/views/javascript/ui-utils.min.js',
+                        '../mvc.splash-ui/src/views/javascript/createController.js',
                 )));
 
         $this->content->addFile(__DIR__.'/../../../../../views/admin/createController.php', $this);
