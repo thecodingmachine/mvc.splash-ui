@@ -30,11 +30,11 @@ class Router implements RouterInterface
     /**
      * @Important IfSet
      *
-     * @param MiddlewareInterface $middleware      The PSR-7 middleware to call
+     * @param MiddlewareInterface|callable $middleware      The PSR-7 middleware to call
      * @param string              $path            The path to that middleware (defaults to /).
      * @param ConditionInterface  $enableCondition Whether the middleware must be enabled or not.
      */
-    public function __construct(MiddlewareInterface $middleware, $path = '/', ConditionInterface $enableCondition = null)
+    public function __construct($middleware, $path = '/', ConditionInterface $enableCondition = null)
     {
         $this->path = $path;
         $this->middleware = $middleware;
