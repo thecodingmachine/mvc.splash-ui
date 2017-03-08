@@ -2,8 +2,8 @@
 
 namespace Mouf\Mvc\Splash\Routers;
 
+use Interop\Http\ServerMiddleware\MiddlewareInterface;
 use Mouf\Utils\Common\ConditionInterface\ConditionInterface;
-use Zend\Stratigility\MiddlewareInterface;
 
 /**
  * The Router class wraps a PSR-7 middleware with the associated path.
