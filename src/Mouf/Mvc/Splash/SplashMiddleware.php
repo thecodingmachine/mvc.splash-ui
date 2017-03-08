@@ -4,6 +4,7 @@ namespace Mouf\Mvc\Splash;
 
 use Mouf\Mvc\Splash\Routers\RouterInterface;
 use Mouf\Mvc\Splash\Controllers\Controller;
+use Zend\Diactoros\Response;
 use Zend\Stratigility\MiddlewarePipe;
 
 /**
@@ -25,6 +26,7 @@ class SplashMiddleware extends MiddlewarePipe
     public function __construct(array $routers)
     {
         parent::__construct();
+        $this->setResponsePrototype(new Response());
         foreach ($routers as $router) {
             if ($router->isActive()) {
                 $this->pipe($router->getPath(), $router->getMiddleware());
