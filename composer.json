@@ -21,7 +21,7 @@
 	],
 	"require" : {
 		"php" : ">=7.0",
-		"mouf/mvc.splash-common": "^8.4",
+		"mouf/mvc.splash-common": "^9.0",
 		"zendframework/zend-stratigility": "^3.0",
 		"mouf/mouf": "~2.0.0"
 	},
