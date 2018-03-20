@@ -22,7 +22,7 @@
 	"require" : {
 		"php" : ">=7.0",
 		"mouf/mvc.splash-common": "^8.2",
-		"zendframework/zend-stratigility": "^2.0",
+		"zendframework/zend-stratigility": ">=2.0 <2.2",
 		"mouf/mouf": "~2.0.0"
 	},
 	"autoload" : {
