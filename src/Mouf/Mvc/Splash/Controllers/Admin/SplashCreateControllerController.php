@@ -3,13 +3,13 @@
 namespace Mouf\Mvc\Splash\Controllers\Admin;
 
 use Mouf\Composer\ClassNameMapper;
-use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Html\Template\TemplateInterface;
 use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\Html\Utils\WebLibraryManager\WebLibrary;
-use Mouf\Mvc\Splash\Services\SplashCreateControllerService;
-use Mouf\Mvc\Splash\Services\SplashCreateControllerServiceException;
 use Mouf\MoufManager;
+use Mouf\Mvc\Splash\Controllers\Controller;
+use TheCodingMachine\Splash\Services\SplashCreateControllerService;
+use TheCodingMachine\Splash\Services\SplashCreateControllerServiceException;
 
 /**
  * A controller used to create controllers in Splash.
