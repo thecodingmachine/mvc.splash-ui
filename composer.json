@@ -21,7 +21,7 @@
 	],
 	"require" : {
 		"php" : ">=7.0",
-		"thecodingmachine/splash-router": "^9.0",
+		"mouf/mvc.splash-common": "^10.0",
 		"zendframework/zend-stratigility": "^3.0",
 		"mouf/mouf": "~2.0.0"
 	},
