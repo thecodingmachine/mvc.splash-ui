@@ -7,7 +7,7 @@ use Mouf\Html\Template\TemplateInterface;
 use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\Html\Utils\WebLibraryManager\WebLibrary;
 use Mouf\MoufManager;
-use TheCodingMachine\Splash\Controllers\Controller;
+use Mouf\Mvc\Splash\Controllers\Controller;
 use TheCodingMachine\Splash\Services\SplashCreateControllerService;
 use TheCodingMachine\Splash\Services\SplashCreateControllerServiceException;
 
