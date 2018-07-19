@@ -21,7 +21,7 @@ use Zend\Stratigility\MiddlewarePipe as ZendMiddleWarePipe;
  * Check out the Splash documentation here:
  * <a href="https://github.com/thecodingmachine/mvc.splash/">https://github.com/thecodingmachine/mvc.splash/</a>.
  */
-class MiddlewarePipe implements MiddlewareInterface
+class MiddlewarePipe implements MiddlewareInterface, RequestHandlerInterface
 {
     private $zendPipe;
 
@@ -47,5 +47,24 @@ class MiddlewarePipe implements MiddlewareInterface
         return $this->zendPipe->process($request, $handler);
     }
 
+    /**
+     * Handle an incoming request.
+     *
+     * Attempts to handle an incoming request by doing the following:
+     *
+     * - Cloning itself, to produce a request handler.
+     * - Dequeuing the first middleware in the cloned handler.
+     * - Processing the first middleware using the request and the cloned handler.
+     *
+     * If the pipeline is empty at the time this method is invoked, it will
+     * raise an exception.
+     *
+     * @throws Exception\EmptyPipelineException if no middleware is present in
+     *     the instance in order to process the request.
+     */
+    public function handle(ServerRequestInterface $request) : ResponseInterface
+    {
+        return $this->zendPipe->handle($request);
+    }
 
 }

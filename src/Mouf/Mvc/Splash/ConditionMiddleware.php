@@ -43,11 +43,11 @@ class ConditionMiddleware implements MiddlewareInterface{
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         if($this->condition->isOk()) {
-            $this->ifMiddleware->process($request, $handler);
+            return $this->ifMiddleware->process($request, $handler);
         } else if($this->elseMiddleware) {
-            $this->elseMiddleware->process($request, $handler);
+            return $this->elseMiddleware->process($request, $handler);
         } else {
-            $handler->handle($request);
+            return $handler->handle($request);
         }
     }
 }
