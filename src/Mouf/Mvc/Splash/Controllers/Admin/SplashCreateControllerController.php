@@ -3,13 +3,13 @@
 namespace Mouf\Mvc\Splash\Controllers\Admin;
 
 use Mouf\Composer\ClassNameMapper;
-use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Html\Template\TemplateInterface;
 use Mouf\Html\HtmlElement\HtmlBlock;
 use Mouf\Html\Utils\WebLibraryManager\WebLibrary;
+use Mouf\MoufManager;
+use Mouf\Mvc\Splash\Controllers\Controller;
 use Mouf\Mvc\Splash\Services\SplashCreateControllerService;
 use Mouf\Mvc\Splash\Services\SplashCreateControllerServiceException;
-use Mouf\MoufManager;
 
 /**
  * A controller used to create controllers in Splash.
@@ -81,22 +81,20 @@ class SplashCreateControllerController extends Controller
      * @param string $namespace
      * @param string $injectLogger
      * @param string $injectTemplate
-     * @param string $injectDaoFactory
      * @param array  $actions
      */
     public function generate($controllerName, $instanceName, $namespace, $injectLogger = false,
-            $injectTemplate = false, $injectDaoFactory = false,    $actions = array())
+            $injectTemplate = false, $actions = array())
     {
         $injectLogger = ($injectLogger == 'false') ? false : $injectLogger;
         $injectTemplate = ($injectTemplate == 'false') ? false : $injectTemplate;
-        $injectDaoFactory = ($injectDaoFactory == 'false') ? false : $injectDaoFactory;
 
         $moufManager = MoufManager::getMoufManagerHiddenInstance();
 
         $generatorService = new SplashCreateControllerService();
         try {
             $generatorService->generate($moufManager, $controllerName, $instanceName, $namespace, $injectLogger,
-                $injectTemplate, $injectDaoFactory, $actions);
+                $injectTemplate, $actions);
         } catch (SplashCreateControllerServiceException $e) {
             $errors = $e->getErrors();
             header('Content-type: application/json');
