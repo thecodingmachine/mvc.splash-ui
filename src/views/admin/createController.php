@@ -53,9 +53,6 @@ Unless you are developing your own autoload system, you should configure <code>c
 	    <label class="checkbox inline">
 	    	<input type="checkbox" ng-model="injectTemplate" /> Template and content block
 	    </label>
-	    <label class="checkbox inline" ng-show="tdbmExists">
-	    	<input type="checkbox" ng-model="injectDaoFactory" /> DAO Factory
-	    </label>
 	</div>
 </div>
 
