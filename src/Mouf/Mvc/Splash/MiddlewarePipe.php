@@ -7,11 +7,11 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Zend\Stratigility\MiddlewarePipe as ZendMiddleWarePipe;
+use Laminas\Stratigility\MiddlewarePipe as LaminasMiddleWarePipe;
 
 /**
  * The Splash MiddlewarePipe class is the root of the Splash framework.<br/>
- * It acts as a wrapper on Zend's MiddleWarePipe <br/>
+ * It acts as a wrapper on Laminas' MiddleWarePipe <br/>
  * It is in charge of binding an Url to a Controller.<br/>
  * There is one and only one instance of Splash per web application.<br/>
  * The name of the instance MUST be "splashMiddleware".<br/>
@@ -23,7 +23,7 @@ use Zend\Stratigility\MiddlewarePipe as ZendMiddleWarePipe;
  */
 class MiddlewarePipe implements MiddlewareInterface, RequestHandlerInterface
 {
-    private $zendPipe;
+    private $laminasPipe;
 
     /**
      * MiddlewarePipe constructor.
@@ -31,10 +31,10 @@ class MiddlewarePipe implements MiddlewareInterface, RequestHandlerInterface
      */
     public function __construct(array $middlewares)
     {
-        $this->zendPipe = new ZendMiddleWarePipe();
+        $this->laminasPipe = new LaminasMiddleWarePipe();
         foreach ($middlewares as $middleware) {
             /** @var Router $router */
-            $this->zendPipe->pipe($middleware);
+            $this->laminasPipe->pipe($middleware);
         }
     }
 
@@ -44,7 +44,7 @@ class MiddlewarePipe implements MiddlewareInterface, RequestHandlerInterface
      */
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        return $this->zendPipe->process($request, $handler);
+        return $this->laminasPipe->process($request, $handler);
     }
 
     /**
@@ -64,7 +64,7 @@ class MiddlewarePipe implements MiddlewareInterface, RequestHandlerInterface
      */
     public function handle(ServerRequestInterface $request) : ResponseInterface
     {
-        return $this->zendPipe->handle($request);
+        return $this->laminasPipe->handle($request);
     }
 
 }

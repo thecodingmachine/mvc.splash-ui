@@ -21,8 +21,8 @@
 	],
 	"require" : {
 		"php" : ">=7.0",
+		"laminas/laminas-stratigility": "^3.9",
 		"mouf/mvc.splash-common": "^10.0",
-		"zendframework/zend-stratigility": "^3.0",
 		"mouf/mouf": "~2.0.0"
 	},
 	"autoload" : {
@@ -38,5 +38,12 @@
 		}
 	},
 	"minimum-stability": "dev",
-	"prefer-stable": true
+	"prefer-stable": true,
+	"config": {
+		"allow-plugins": {
+			"mouf/mouf-installer": true,
+			"mouf/html.utils.weblibrarymanager.component-installer": true,
+			"laminas/laminas-dependency-plugin": true
+		}
+	}
 }
